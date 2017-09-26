@@ -1,0 +1,54 @@
+{% extends "base_cassandra.html" %} <!--this means that you are extending the base tempate -->
+{% block drinkid %} <!-- this is the name of the block below -->
+
+<div class="row" style="height:30vh;">
+    <div class="col-md-4 col-md-offset-4" style="margin-top:10vh;">
+        <form action="drink" method="POST">
+            <div class="form-group text-center">
+                <label style="font-weight:300; font-size:30px;">Select Drink to Analyze</label>
+                <br /><br />
+                <br>Drink:<br>
+                <select class="form-control" name="drink_name" id="drink">
+                    <option value="coffee">coffee</option>
+                    <option value="tea">tea</option>
+                    <option value="milk">milk</option>
+                    <option value="soda">soda</option>
+                    <option value="juice">juice</option>
+                    <option value="wine">wine</option>
+                    <option value="beer">beer</option>
+                    <option value="liquor">liquor</option>
+                </select>
+                <button type="submit" value="Send" name="drinkid-container" class="btn btn-default id-submit">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <div class="starter-template">
+        <div class="row" style="height:100vh;">
+            <div class="col-md-10 col-md-offset-1">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>drink</th>
+                            <th>time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for val in output %}
+                        <tr>
+                            <td>{{val.drink_name}}</td>
+                            <td>{{val.count}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
