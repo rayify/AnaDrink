@@ -1,0 +1,23 @@
+{% extends "base_cassandra.html" %}
+{% block title %}AnaDrink{% endblock %}
+{% block body %}
+<html>
+<head></head>
+<body>
+   {% if user %}
+   <h1>Hello, {{user.nickname}}!</h1>
+   {% else %}
+   <h1>Hello, Insight Fellow!</h1>
+   {% endif %}
+    <br />
+   <ul>
+   {% for num in mylist %}
+      <li>{{num}}</li>
+   {% endfor %}
+   </ul>
+    
+    
+</body>
+</html>
+<br><br><br><br><br>
+{% endblock %}
