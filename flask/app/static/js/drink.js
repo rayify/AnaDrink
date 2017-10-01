@@ -2,11 +2,9 @@ var coffee = localStorage.getItem("coffee");
 if(coffee==null) coffee = [];
 else coffee = domStringToList(coffee);
 
-
 var coffee_delta = localStorage.getItem("coffee_delta");
 if(coffee_delta==null) coffee_delta = [0];
 else coffee_delta = domStringToList(coffee_delta);
-
 
 var tea = localStorage.getItem("tea");
 if(tea==null) tea = [];
@@ -69,16 +67,17 @@ var x_axis = localStorage.getItem("x_axis");
 if(x_axis==null) x_axis = [];
 else x_axis = x_axis.split(",");
 
-
-var coffee_count = parseInt(document.getElementById('count_coffee').innerHTML);
-var tea_count = parseInt(document.getElementById('count_tea').innerHTML);
-var milk_count = parseInt(document.getElementById('count_milk').innerHTML);
-var soda_count = parseInt(document.getElementById('count_soda').innerHTML);
-var juice_count = parseInt(document.getElementById('count_juice').innerHTML);
-var wine_count = parseInt(document.getElementById('count_wine').innerHTML);
-var beer_count = parseInt(document.getElementById('count_beer').innerHTML);
-var liquor_count = parseInt(document.getElementById('count_liquor').innerHTML);
-var sum = coffee_count + tea_count + milk_count + soda_count + juice_count + wine_count + beer_count + liquor_count;
+if(document.getElementById('count_coffee')!=null){
+    var coffee_count = parseInt(document.getElementById('count_coffee').innerHTML);
+    var tea_count = parseInt(document.getElementById('count_tea').innerHTML);
+    var milk_count = parseInt(document.getElementById('count_milk').innerHTML);
+    var soda_count = parseInt(document.getElementById('count_soda').innerHTML);
+    var juice_count = parseInt(document.getElementById('count_juice').innerHTML);
+    var wine_count = parseInt(document.getElementById('count_wine').innerHTML);
+    var beer_count = parseInt(document.getElementById('count_beer').innerHTML);
+    var liquor_count = parseInt(document.getElementById('count_liquor').innerHTML);
+    var sum = coffee_count + tea_count + milk_count + soda_count + juice_count + wine_count + beer_count + liquor_count;
+}
 
 var current = new Date();
 var h = fixTimeFormat(current.getHours());
@@ -99,13 +98,13 @@ var myPieChart = Highcharts.chart('piechart', {
     name: 'Drinks',
     colorByPoint: true,
     data: [{name: 'Coffee',y: coffee_count/sum, x: coffee_count}, 
-   {name: 'Tea',y: tea_count/sum,sliced: true,selected: true}, 
-   {name: 'Milk',y: milk_count/sum}, 
-   {name: 'Soda',y: soda_count/sum}, 
-   {name: 'Juice',y: juice_count/sum}, 
-   {name: 'Wine',y: wine_count/sum}, 
-   {name: 'Beer',y: beer_count/sum}, 
-   {name: 'Liquor',y: liquor_count/sum}]}]
+           {name: 'Tea',y: tea_count/sum,sliced: true,selected: true}, 
+           {name: 'Milk',y: milk_count/sum}, 
+           {name: 'Soda',y: soda_count/sum}, 
+           {name: 'Juice',y: juice_count/sum}, 
+           {name: 'Wine',y: wine_count/sum}, 
+           {name: 'Beer',y: beer_count/sum}, 
+           {name: 'Liquor',y: liquor_count/sum}]}]
 });
 
 var myLineChart = Highcharts.chart('linechart', {
@@ -114,13 +113,13 @@ var myLineChart = Highcharts.chart('linechart', {
     xAxis: {categories: x_axis},
     yAxis: {title: {text: 'Trend'}},
     series: [{name: 'Coffee',data: coffee_delta},
-     {name: 'Tea',data: tea_delta},
-     {name: 'Milk',data: milk_delta},
-     {name: 'Soda',data: soda_delta},
-     {name: 'Juice',data: juice_delta},
-     {name: 'Wine',data: wine_delta},
-     {name: 'Beer',data: beer_delta},
-     {name: 'Liquor',data: liquor_delta}]
+             {name: 'Tea',data: tea_delta},
+             {name: 'Milk',data: milk_delta},
+             {name: 'Soda',data: soda_delta},
+             {name: 'Juice',data: juice_delta},
+             {name: 'Wine',data: wine_delta},
+             {name: 'Beer',data: beer_delta},
+             {name: 'Liquor',data: liquor_delta}]
 });
 
 function fixTimeFormat(i){
@@ -130,7 +129,7 @@ function domStringToList(dom){
     var temp = dom.split(",");
     var result = [];
     for(i=0;i<temp.length;i++)
-result.push(parseInt(temp[i]));
+        result.push(parseInt(temp[i]));
     return result;
 
 }
@@ -185,7 +184,6 @@ function renew()
 
 //update url every 300s
 $(function() {
-    var page_y = document.getElementsByTagName("body")[0].scrollTop;
     document.getElementById("table").style.display="";
     setInterval(renew(), 300000);
     setInterval(function () {document.getElementById("search_button").click();}, 300000);
