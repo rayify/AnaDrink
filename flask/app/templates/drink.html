@@ -1,24 +1,19 @@
-{% extends "base_cassandra.html" %} <!--this means that you are extending the base tempate -->
-{% block drinkid %} <!-- this is the name of the block below -->
+{% extends "base_cassandra.html" %}
+{% block drinkid %}
 
-<div class="row" style="height:30vh;">
-    <div class="col-md-4 col-md-offset-4" style="margin-top:10vh;">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+<div class="row" style="height:20vh;">
+    <div class="col-md-4 col-md-offset-4">
         <form action="drink" method="POST">
             <div class="form-group text-center">
-                <label style="font-weight:300; font-size:30px;">Select Drink to Analyze</label>
-                <br /><br />
-                <br>Drink:<br>
-                <select class="form-control" name="drink_name" id="drink">
-                    <option value="coffee">coffee</option>
-                    <option value="tea">tea</option>
-                    <option value="milk">milk</option>
-                    <option value="soda">soda</option>
-                    <option value="juice">juice</option>
-                    <option value="wine">wine</option>
-                    <option value="beer">beer</option>
-                    <option value="liquor">liquor</option>
-                </select>
-                <button type="submit" value="Send" name="drinkid-container" class="btn btn-default id-submit">Search</button>
+                <h1>DrinkStream</h1>
+                <label style="font-weight:300; font-size:30px;">Analyze Drink Trends with Streaming Tweets</label><br>
+                <button type="submit" id="search_button" value="Send" name="drinkid-container" class="btn btn-default id-submit">Start</button>
             </div>
         </form>
     </div>
@@ -26,9 +21,9 @@
 
 <div class="container">
     <div class="starter-template">
-        <div class="row" style="height:100vh;">
+        <div class="row" style="height:30vh;">
             <div class="col-md-10 col-md-offset-1">
-                <table class="table">
+                <table id="table" class="table">
                     <thead>
                         <tr>
                             <th>drink</th>
@@ -46,9 +41,23 @@
                 </table>
             </div>
         </div>
+        <div class="container" id="count" style="display:none;">
+            {% if output!=null %}
+            <div id="count_coffee">{{output[0].count}}</div>
+            <div id="count_tea">{{output[1].count}}</div>
+            <div id="count_milk">{{output[2].count}}</div>
+            <div id="count_soda">{{output[3].count}}</div>
+            <div id="count_juice">{{output[4].count}}</div>
+            <div id="count_wine">{{output[5].count}}</div>
+            <div id="count_beer">{{output[6].count}}</div>
+            <div id="count_liquor">{{output[7].count}}</div>
+            {% endif %}
+        </div>
+<div id="piechart"  style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<div id="linechart" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
     </div>
 </div>
 
-
+<script src="../../static/js/drink.js"></script>
 
 {% endblock %}
