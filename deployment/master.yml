@@ -1,0 +1,10 @@
+purchase_type: on_demand
+subnet_id: subnet-d7b2b68f
+num_instances: 1
+key_name: hanlei-wang-IAM-keypair
+security_group_ids: sg-b79f27d1
+instance_type: m4.large
+tag_name: hanlei-second-cluster
+vol_size: 100
+role: master
+use_eips: true
