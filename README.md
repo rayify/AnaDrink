@@ -10,9 +10,9 @@ This is a project developed by Hanlei Wang during September 2017 at Insight Data
 It is basically a complete end-to-end data pipeline that catch real-time steaming data, do ETL and basic analytical work, and finally present some insights about drink trends to users. 
 You can have an overview about DrinkStream from following links:
 
-DrinkStream URL: 		      [Drink Stream App](https://www.anadrink.club)
-Demo slides: 			        [Drink Stream Demo Slides](https://www.goo.gl/G95TW1)
-Demo script for slides: 	[Drink Stream Demo Script](https://www.goo.gl/t26fF3)
+DrinkStream URL: 		      [Drink Stream App](https://www.anadrink.club) <br />
+Demo slides: 			        [Drink Stream Demo Slides](https://www.goo.gl/G95TW1) <br />
+Demo script for slides: 	[Drink Stream Demo Script](https://www.goo.gl/t26fF3) <br />
 
 
 
