@@ -71,10 +71,7 @@ def extract_data(json_body):
         tweet_user_location = 'None'
         if ('location' in json_body['user']):
             tweet_user_location = json_body['user']['location']
-            
-        print ('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX')
     except:
-        print ("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
         return None
     data = {'id': tweet_id,
             'drink': tweet_drink,
