@@ -7,10 +7,10 @@ import sys
 from kafka.producer import KafkaProducer
 
 
-config = {'access_key': '824366116042477568-D7RAYXsXDlZtLHwsF9rnlxnYmslqs2n',
-          'access_secret': 'vr1b9hmkDAnNCIMqaiLJXEb4uclTIdEk7BZdqZi4raRPb',
-          'consumer_key': 'sLIwSWJi9AFXgwM0TuNMSPeC1',
-          'consumer_secret': 'AXcXpiocAbW07us9PmjKDNTCBxjpPD8kVEN8nvofgVVQIQRQhE'}
+config = {'access_key': 'your_access_key_here',
+          'access_secret': 'your_access_secret_key_here',
+          'consumer_key': 'your_consumer_key_here',
+          'consumer_secret': 'your_consumer_secret_key_here'}
 
 
 
@@ -28,7 +28,7 @@ search_term = "coffee, cappuccino, espresso, frappuccino, mocha, \
                liquor, sake, shochu, whisky, tequila, gin, cognac, rum"
 tweet_iter = stream.statuses.filter(track = search_term, language = 'en')
 
-producer = KafkaProducer(bootstrap_servers='13.57.46.231:9092') 
+producer = KafkaProducer(bootstrap_servers='your_aws_cluster_public_IP:9092') 
 
 for tweet in tweet_iter:
     print (tweet)
