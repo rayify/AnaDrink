@@ -24,7 +24,7 @@ Demo script for slides: 	goo.gl/t26fF3
 
 
 # Pipeline
-
+![alt text](./screenshot/Picture1.png)
 
 # Set Up
 1. Pegasus, a VM-based deployment tool published by Insight Data Science, is used to deploy the three clusters (Kafka, Spark, and Cassandra) used in this project. All the necessary scripts can be found in the ‘deployment’ directory. Note that an AWS account and PEM key are necessary to deploy clusters via this method. The PEM key should accessible on your machine as ~/.ssh/key-pair.pem. You should have your AWS set up before trying to set up this pipeline. Also, MAKE SRUE YOUR SECURITY GROUP IS NOT INBUND ACCESSIBLE TO ALL AS 0.0.0.0./::0. It is highly possible that your AWS clusters will be hacked if your clusters are accessible from any IP address. Only open the port and customer addresses you want. Please check README.md in ‘deployment’ for more information about Pegasus and cluster set up.
