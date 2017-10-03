@@ -90,8 +90,8 @@ def extract_data(json_body):
     return data
         
     
-cassandra_master = "ec2-13-57-46-231.us-west-1.compute.amazonaws.com"
-brokers = "ec2-13-57-46-231.us-west-1.compute.amazonaws.com:9092"
+cassandra_master = "your_AWS_cluster_public_DNS"
+brokers = "your_AWS_cluster_public_DNS:9092"
 topics = "insight_topic"
 keyspace = 'playground'
 
