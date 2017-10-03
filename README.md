@@ -4,9 +4,6 @@ Analyze drink trends based on streaming twitter data.
 # Technologies:
 Twitter API, Kafka, Spark, Cassandra, Flask
 
-# Languages in the project:
-Python, Javascript, HTML
-
 
 # Description
 This is a project developed by Hanlei Wang during September 2017 at Insight Data Science, Palo Alto, CA. 
