@@ -18,8 +18,8 @@ PEG_ROOT=$(dirname ${BASH_SOURCE})/../..
 
 CLUSTER_NAME=hanlei-cluster
 
-peg up ${PEG_ROOT}/hanlei/spark/master.yml &
-peg up ${PEG_ROOT}/hanlei/spark/workers.yml &
+peg up ${PEG_ROOT}/drinkstream/deployment/master.yml &
+peg up ${PEG_ROOT}/drinkstream/deployment/workers.yml &
 
 wait
 
