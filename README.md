@@ -12,7 +12,7 @@ You can have an overview about DrinkStream from following links:
 
 DrinkStream URL: 		      [Drink Stream App](https://www.anadrink.club) <br />
 Demo slides: 			        [Drink Stream Demo Slides](https://www.goo.gl/G95TW1) <br />
-Demo script for slides: 	[Drink Stream Demo Script](https://www.goo.gl/t26fF3) <br />
+Demo script for slides: 	[Drink Stream Demo Script](https://goo.gl/EPC8RK) <br />
 
 
 
