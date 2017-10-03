@@ -55,4 +55,5 @@ You can use Pegasus to set up Kafka-manager(port 9001) and have a real-time admi
 # Result
 The pipeline in this project is relatively simple, which was purposely designed this way to help understanding how each technology related with each other. Also, the efficiency of the pipeline also is a highlight. Sometimes, simple is the best. I post two screenshot of the UI here as a detailed view about the final analytical result of the project. The list provides the specific numerical value about how many tweets were created about the drink. The pie chart gives the estimated market share based on the number of how many tweets were created historically. Finally, the line chart shows the real-time trend of each beverage category and the popularity of them. 
 
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+![alt text](./screenshot/Picture2.png)
+![alt text](./screenshot/Picture3.png)
