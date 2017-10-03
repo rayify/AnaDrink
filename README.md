@@ -1,8 +1,4 @@
 # DrinkStream
-Insight DE 2017 Fall
-
-
-# DrinkStream
 Analyze drink trends based on streaming twitter data.
 
 # Technologies:
