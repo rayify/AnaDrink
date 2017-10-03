@@ -1,9 +1,10 @@
 from __future__ import print_function
+import os
+os.environ['PYSPARK_SUBMIT_ARGS'] = '--packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.0.2 pyspark-shell'
 import sys
 import json
 import time
 import threading
-
 from twitter import *
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext  
@@ -90,8 +91,11 @@ def extract_data(json_body):
     return data
         
     
-cassandra_master = "your_AWS_cluster_public_DNS"
-brokers = "your_AWS_cluster_public_DNS:9092"
+cassandra_master = "your_aws_cluster_public_DNS"
+
+#there may be multiple brokers in the system, simply append your borkers as a list here
+brokers = "your_aws_cluster_public_DNS:9092"
+
 topics = "insight_topic"
 keyspace = 'playground'
 
@@ -111,7 +115,7 @@ def process(time, rdd):
     
     for x in lines.collect():
         tweet = extract_data(x)
-        if (tweet['drink']==' '):
+        if (tweet is None or tweet['drink']==' '):
             continue
         session.execute(to_cassandra,(tweet['id'], tweet['drink'], tweet['timestamp'], tweet['text'], tweet['favorite'], tweet['retweet'], tweet['reply'], tweet['user_id'], tweet['user_followers'], tweet['user_friends'], tweet['user_location']))
 
@@ -125,4 +129,3 @@ kafkaStream = KafkaUtils.createDirectStream(ssc, [topics], {"metadata.broker.lis
 kafkaStream.foreachRDD(process) 
 ssc.start()
 ssc.awaitTermination()
-
