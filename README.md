@@ -1,8 +1,6 @@
 # DrinkStream
 Insight DE 2017 Fall
 
-# READ ME
-
 
 # DrinkStream
 Analyze drink trends based on streaming twitter data.
