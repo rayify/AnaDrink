@@ -1,11 +1,11 @@
 # DrinkStream
 Analyze drink trends based on streaming twitter data.
 
-# Technologies:
+## Technologies:
 Twitter API, Kafka, Spark, Cassandra, Flask
 
 
-# Description
+## Description
 This is a project developed by Hanlei Wang during September 2017 at Insight Data Science, Palo Alto, CA. 
 It is basically a complete end-to-end data pipeline that catch real-time steaming data, do ETL and basic analytical work, and finally present some insights about drink trends to users. 
 You can have an overview about DrinkStream from following links:
@@ -16,10 +16,10 @@ Demo script for slides: 	[Drink Stream Demo Script](https://www.goo.gl/t26fF3)
 
 
 
-# Pipeline
+## Pipeline
 ![alt text](./screenshot/Picture1.png)
 
-# Set Up
+## Set Up
 1. Pegasus, a VM-based deployment tool published by Insight Data Science, is used to deploy the three clusters (Kafka, Spark, and Cassandra) used in this project. All the necessary scripts can be found in the *deployment* directory. Note that an AWS account and PEM key are necessary to deploy clusters via this method. The PEM key should accessible on your machine as *~/.ssh/key-pair.pem*. You should have your AWS set up before trying to set up this pipeline. Also, **MAKE SRUE YOUR SECURITY GROUP IS NOT INBUND ACCESSIBLE TO ALL AS 0.0.0.0./::0**. It is highly possible that your AWS clusters will be hacked if your clusters are accessible from any IP address. Only open the port and customer addresses you want. Please check *README.md* in *deployment* for more information about Pegasus and cluster set up.
 
 2. In order to get real-time Twitter data from Twitter streaming API, you have to sign up a twitter developer account at [https://apps.twitter.com](https://apps.twitter.com) and follow the instruction there to get your four parameters: access key, access secret key, consumer key, and consumer secret key. I called my Twitter App as *InsightDE_twitter*. Please change it to anything you like, as long as you get your keys filled in *producer.py* under *kafka* folder.
@@ -41,12 +41,12 @@ Replace the *index.html* with *drink.html* and add *drink.js* to the */flask/sta
 
 
 
-# Testing and Monitoring
+## Testing and Monitoring
 You can use Pegasus to set up Kafka-manager(port 9001) and have a real-time administration over the Kafka clusters. Also, you can try add more topics catch from Twitter Streaming API to test the actual throughput of this pipeline. Please use AWS monitoring to have a detailed view about actual data flow and CPU calculating work done in the AWS clusters. For Hadoop (you have to install Hadoop to run Spark), port 50070 as HDFS dashboard, port 8088 as Job Tracker, port 19888 as Job History list. For Spark, port 8080 as Cluster UI, port 4040 as Job UI, port 8888 as Jupyter Notebook where you can access all your files in the cluster. 
 
 
 
-# Result
+## Result
 The pipeline in this project is relatively simple, which was purposely designed this way to help understanding how each technology related with each other. Also, the efficiency of the pipeline also is a highlight. Sometimes, simple is the best. I post two screenshot of the UI here as a detailed view about the final analytical result of the project. The list provides the specific numerical value about how many tweets were created about the drink. The pie chart gives the estimated market share based on the number of how many tweets were created historically. Finally, the line chart shows the real-time trend of each beverage category and the popularity of them. 
 
 ![alt text](./screenshot/Picture2.png)
