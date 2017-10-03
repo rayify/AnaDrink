@@ -11,5 +11,5 @@ Set Up
 
 3. Additionally, the scripts in this directory expect two .txt files in your ~/.ssh/ directory: sg.txt, which is a text file with one line listing your security group (e.g.; sg-XXX), and similarly, subnet.txt, a text file with one line listing your subnet (e.g.; subnet-XXX). If you're not sure what to put in these two files, you can view your security groups with peg aws security-groups, and your subnets with peg aws subnets.
 
-You are now ready to deploy the clusters. The scripts I've included will automatically install all the necessary technologies on the clusters and start the necessary services. 
+You are now ready to deploy the clusters. The scripts I've included will automatically install all the necessary technologies on the clusters and start the necessary services. Please change your path to master.yml and workers.yml if you have your files stored at other places.
 For example, to deploy the clusters: $ ~/drinkstream/deployment/deploy.sh
